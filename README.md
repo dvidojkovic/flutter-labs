@@ -1,6 +1,7 @@
 # flutter_application_labs1
 
-A new Flutter project.
+Развој на Flutter апликација за „Мобилни информациски системи“ при УКИМ ФИНКИ.
+Давор Видојковиќ 203233
 
 ## Getting Started
 
