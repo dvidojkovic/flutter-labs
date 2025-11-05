@@ -11,34 +11,30 @@ class ExamGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
 
-    // Dynamically pick number of columns based on screen width
     int crossAxisCount;
     double aspectRatio;
 
     if (screenWidth < 600) {
-      // small screen (mobile)
-      crossAxisCount = 2;
-      aspectRatio = 0.8;
+      crossAxisCount = 4; // mobile: 2 cards per row
+      aspectRatio = 1.5; // shorter cards
     } else if (screenWidth < 1200) {
-      // medium (tablet)
-      crossAxisCount = 3;
-      aspectRatio = 1.1;
+      crossAxisCount = 4; // tablet/desktop: 4 cards per row
+      aspectRatio = 1.9; // smaller and more compact
     } else {
-      // large (desktop/web)
-      crossAxisCount = 4;
-      aspectRatio = 1.3;
+      crossAxisCount = 4; // large desktop: 6 cards per row
+      aspectRatio = 4;
     }
 
     return GridView.builder(
+      padding: const EdgeInsets.all(8),
+      physics: const BouncingScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: crossAxisCount,
-        crossAxisSpacing: 12,
-        mainAxisSpacing: 12,
+        mainAxisSpacing: 8,
+        crossAxisSpacing: 8,
         childAspectRatio: aspectRatio,
       ),
       itemCount: exams.length,
-      padding: const EdgeInsets.all(12),
-      physics: const BouncingScrollPhysics(),
       itemBuilder: (context, index) {
         return ExamCard(exam: exams[index]);
       },

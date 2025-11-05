@@ -8,32 +8,57 @@ class ExamCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final now = DateTime.now();
+
+    final cardColor = exam.date.isBefore(now)
+      ? Colors.red.shade100
+      : Colors.yellow.shade500;
+
     return Card(
-      elevation: 4,
+      color: cardColor,
+      elevation: 2,
+      margin: EdgeInsets.zero, // remove extra margin
       shape: RoundedRectangleBorder(
-        side: BorderSide(color: Colors.blueGrey.shade200, width: 2),
-        borderRadius: BorderRadius.circular(12),
+        side: BorderSide(color: Colors.blueGrey.shade200, width: 1.5),
+        borderRadius: BorderRadius.circular(8),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(8.0), // less padding
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               exam.name,
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
             ),
-            const SizedBox(height: 8),
-            Text(
-              "Датум: ${exam.date.toLocal().toString().split(' ')[0]}",
-              style: const TextStyle(fontSize: 16, color: Colors.grey),
+            const SizedBox(height: 4),
+            Row(
+              children: [
+                const Icon(Icons.calendar_today, size: 16, color: Colors.black54),
+                const SizedBox(width: 4),
+                Text(
+                  "Датум: ${exam.date.day}.${exam.date.month}.${exam.date.year}",
+                  style: const TextStyle(fontSize: 13, color: Colors.grey),
+                ),
+              ],
             ),
-            const Divider(),
-            Text(
-              "Лаборатории: ${exam.labs.join(', ')}",
-              style: const TextStyle(fontSize: 16),
-            ),
+            Row(
+              children: [
+                const Icon(Icons.science, size: 16, color: Colors.black54),
+                const SizedBox(width: 4),
+                Expanded(
+                  child: Text(
+                    exam.labs.join(', '),
+                    style: const TextStyle(fontSize: 13),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  )
+                )
+              ],
+            )
           ],
         ),
       ),
