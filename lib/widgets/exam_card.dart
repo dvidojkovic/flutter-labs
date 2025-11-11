@@ -8,60 +8,60 @@ class ExamCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final now = DateTime.now();
+    final isPast = exam.date.isBefore(DateTime.now());
+    final color = isPast ? Colors.grey.shade200 : Colors.deepPurple.shade50;
+    final borderColor = isPast ? Colors.grey : Colors.deepPurple;
 
-    final cardColor = exam.date.isBefore(now)
-      ? Colors.red.shade100
-      : Colors.yellow.shade500;
-
-    return Card(
-      color: cardColor,
-      elevation: 2,
-      margin: EdgeInsets.zero, // remove extra margin
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, '/details', arguments: exam,);
+      },
+      child: Card(
+      color: color,
       shape: RoundedRectangleBorder(
-        side: BorderSide(color: Colors.blueGrey.shade200, width: 1.5),
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(12),
+        side: BorderSide(color: borderColor, width: 1),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(8.0), // less padding
+        padding: const EdgeInsets.all(8.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               exam.name,
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+                color: isPast ? Colors.grey : Colors.deepPurple,
+              ),
             ),
-            const SizedBox(height: 4),
             Row(
               children: [
-                const Icon(Icons.calendar_today, size: 16, color: Colors.black54),
+                const Icon(Icons.calendar_today, size: 14, color: Colors.grey),
                 const SizedBox(width: 4),
                 Text(
-                  "Датум: ${exam.date.day}.${exam.date.month}.${exam.date.year}",
-                  style: const TextStyle(fontSize: 13, color: Colors.grey),
+                  '${exam.date.day}.${exam.date.month}.${exam.date.year}',
+                  style: const TextStyle(color: Colors.grey, fontSize: 12),
                 ),
               ],
             ),
             Row(
               children: [
-                const Icon(Icons.science, size: 16, color: Colors.black54),
+                const Icon(Icons.room, size: 14, color: Colors.grey),
                 const SizedBox(width: 4),
                 Expanded(
                   child: Text(
                     exam.labs.join(', '),
-                    style: const TextStyle(fontSize: 13),
-                    maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                  )
-                )
+                    style: const TextStyle(color: Colors.grey, fontSize: 12),
+                  ),
+                ),
               ],
-            )
+            ),
           ],
         ),
       ),
-    );
+    ));
   }
 }
