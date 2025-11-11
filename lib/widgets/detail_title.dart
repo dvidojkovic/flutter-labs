@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 class ExamDetailTitle extends StatelessWidget {
-  final int id;
   final String name;
 
-  const ExamDetailTitle({super.key, required this.id, required this.name});
+  const ExamDetailTitle({super.key, required this.name});
 
   @override
   Widget build(BuildContext context) {
@@ -29,14 +28,6 @@ class ExamDetailTitle extends StatelessWidget {
             decoration: const BoxDecoration(
               color: Colors.white,
               shape: BoxShape.circle,
-            ),
-            child: Text(
-              '#$id',
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.blue,
-              ),
             ),
           ),
           const SizedBox(width: 15),

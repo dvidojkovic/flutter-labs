@@ -13,7 +13,7 @@ class ExamDetailsPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.blue.shade50,
       appBar: AppBar(
-        title: Text(exam.name.toUpperCase()),
+        title: Text('Распоред за испити - 203233'),
         centerTitle: true,
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
@@ -21,8 +21,8 @@ class ExamDetailsPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // const SizedBox(height: 20),
-            // ExamDetailTitle(id: exam.id, name: exam.name),
+            const SizedBox(height: 20),
+            ExamDetailTitle(name: exam.name),
             const SizedBox(height: 30),
             ExamDetailData(exam: exam),
           ],
