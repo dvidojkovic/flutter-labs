@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
-class ExamDetailTitle extends StatelessWidget {
+class DetailTitle extends StatelessWidget {
+  final String id;
   final String name;
 
-  const ExamDetailTitle({super.key, required this.name});
+  const DetailTitle({super.key, required this.id, required this.name});
 
   @override
   Widget build(BuildContext context) {
