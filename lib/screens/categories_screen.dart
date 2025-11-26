@@ -17,7 +17,6 @@ class _CategoriesPageState extends State<CategoriesPage> {
   late List<Category> _categories = [];
   List<Category> _filteredCategories = [];
   bool _isLoading = true;
-  // bool _isSearching = false;
   String _searchQuery = '';
   final ApiService _apiService = ApiService();
   final TextEditingController _searchController = TextEditingController();
@@ -127,24 +126,4 @@ class _CategoriesPageState extends State<CategoriesPage> {
       }
     });
   }
-
-  // Future<void> _searchCategoryByName(String name) async {
-  //   if (name.isEmpty) return;
-
-  //   setState(() {
-  //     _isSearching = true;
-  //   });
-
-  //   final category = await _apiService.searchCategoryByName(name);
-
-  //   setState(() {
-  //     _isSearching = false;
-
-  //     if (category != null) {
-  //       _filteredCategories = [category];
-  //     } else {
-  //       _filteredCategories = [];
-  //     }
-  //   });
-  // }
 }
