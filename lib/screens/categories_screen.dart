@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_labs1/screens/category_grid.dart';
+import 'package:flutter_application_labs1/screens/favorites_screen.dart';
 import 'package:flutter_application_labs1/services/api_service.dart';
 
 import '../models/models.dart';
@@ -43,6 +44,15 @@ class _CategoriesPageState extends State<CategoriesPage> {
               if (randomMeal != null) {
                 Navigator.pushNamed(context, '/details', arguments: randomMeal.idMeal);
               }
+            },
+          ),
+          IconButton(
+            icon: Icon(Icons.favorite, color: Colors.red),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => FavoritesPage()),
+              );
             },
           ),
         ],

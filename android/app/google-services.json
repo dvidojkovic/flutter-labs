@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "449475197952",
+    "project_id": "mis-labs-8f380",
+    "storage_bucket": "mis-labs-8f380.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:449475197952:android:df1eaee66d2f442722ace5",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_labs1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTK2PyUY1ehbCTYbtX1lAf28e9ggefCA0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
