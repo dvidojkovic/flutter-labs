@@ -30,7 +30,7 @@ Future<void> main() async {
   print("WEB FCM TOKEN: $token");
 
   FirebaseMessaging.onMessage.listen((msg) {
-    print("Foreground mesage: $msg");
+    print("Notification from Firebase Cloud Messaging: ${msg.notification?.title}");
   });
 
   runApp(
