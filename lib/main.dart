@@ -15,13 +15,22 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform
   );
 
-  final notificationSettings = await FirebaseMessaging.instance.requestPermission(alert: true, badge: true, sound: true);
+  NotificationSettings settings = await FirebaseMessaging.instance.requestPermission(
+    alert: true,
+    badge: true,
+    sound: true,
+  );
 
-  FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-    if (message.notification != null) {
-      print('Notification Title: ${message.notification!.title}');
-      print('Notification Body: ${message.notification!.body}');
-    }
+  print("Permission: ${settings.authorizationStatus}");
+
+  String? token = await FirebaseMessaging.instance.getToken(
+    vapidKey: "BAQjTDWpgBDswGD6P-iKzxTUaU2TgaeYQaOHnfsUymDDwbu4AmPETeQuomuGF74WXHsjFl0HJoVf3RM5SZ7Fm8M",
+  );
+
+  print("WEB FCM TOKEN: $token");
+
+  FirebaseMessaging.onMessage.listen((msg) {
+    print("Foreground mesage: $msg");
   });
 
   runApp(
@@ -31,7 +40,7 @@ Future<void> main() async {
       ],
       child: const MyApp()
     )
-  );
+  );	
 }
 
 class MyApp extends StatelessWidget {

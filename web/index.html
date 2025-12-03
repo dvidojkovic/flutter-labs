@@ -31,8 +31,29 @@
 
   <title>flutter_application_labs1</title>
   <link rel="manifest" href="manifest.json">
+
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-messaging-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBdETUhd-SeDM9tW6twkfzScREr-N6HvLA",
+      authDomain: "mis-labs-8f380.firebaseapp.com",
+      projectId: "mis-labs-8f380",
+      messagingSenderId: "449475197952",
+      appId: "1:449475197952:web:fb048b3e6b54214222ace5",
+      storageBucket: "mis-labs-8f380.firebasestorage.app"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const messaging = firebase.messaging();
+  </script>
 </head>
 <body>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/firebase-messaging-sw.js");
+    }
+  </script>
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>

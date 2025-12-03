@@ -20,12 +20,6 @@ class DefaultFirebaseOptions {
       return web;
     }
     switch (defaultTargetPlatform) {
-      case TargetPlatform.android:
-        return android;
-      case TargetPlatform.iOS:
-        return ios;
-      case TargetPlatform.macOS:
-        return macos;
       case TargetPlatform.windows:
         return windows;
       case TargetPlatform.linux:
@@ -47,32 +41,6 @@ class DefaultFirebaseOptions {
     projectId: 'mis-labs-8f380',
     authDomain: 'mis-labs-8f380.firebaseapp.com',
     storageBucket: 'mis-labs-8f380.firebasestorage.app',
-  );
-
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBTK2PyUY1ehbCTYbtX1lAf28e9ggefCA0',
-    appId: '1:449475197952:android:df1eaee66d2f442722ace5',
-    messagingSenderId: '449475197952',
-    projectId: 'mis-labs-8f380',
-    storageBucket: 'mis-labs-8f380.firebasestorage.app',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBPxzPsvwDxx4XnDhtelSQRt-wLu7RBmLE',
-    appId: '1:449475197952:ios:01a87c753f3270cf22ace5',
-    messagingSenderId: '449475197952',
-    projectId: 'mis-labs-8f380',
-    storageBucket: 'mis-labs-8f380.firebasestorage.app',
-    iosBundleId: 'com.example.flutterApplicationLabs1',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBPxzPsvwDxx4XnDhtelSQRt-wLu7RBmLE',
-    appId: '1:449475197952:ios:01a87c753f3270cf22ace5',
-    messagingSenderId: '449475197952',
-    projectId: 'mis-labs-8f380',
-    storageBucket: 'mis-labs-8f380.firebasestorage.app',
-    iosBundleId: 'com.example.flutterApplicationLabs1',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
